@@ -98,12 +98,12 @@
 <meta property="og:site_name" content="这里是——刀塔没我炉石没我的Blog">
 <meta property="og:description" content="关于Dijkstra算法的本质是贪心算法还是动态规划，大家可以去看看大牛们的理解，作为一个学习者我也没什么独到的理解，不过看看大家的观点也没什么害处，毕竟兼听则明。  Dijkstra算法是求解单源最短路径的有效方法。一、相关辅助数组  Visit[]: 记录是否访问过某个节点，当visit[vi]=1时，表示将顶点vi             放入visit[]中； dist[]: 记录从源点v">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/images/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg">
 <meta property="og:updated_time" content="2017-05-16T22:28:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dijkstra 算法笔记">
 <meta name="twitter:description" content="关于Dijkstra算法的本质是贪心算法还是动态规划，大家可以去看看大牛们的理解，作为一个学习者我也没什么独到的理解，不过看看大家的观点也没什么害处，毕竟兼听则明。  Dijkstra算法是求解单源最短路径的有效方法。一、相关辅助数组  Visit[]: 记录是否访问过某个节点，当visit[vi]=1时，表示将顶点vi             放入visit[]中； dist[]: 记录从源点v">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/images/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg">
 
 
 
@@ -333,7 +333,7 @@
 <p>  2).从顶点集合v-visit中选出vj，满足dist[j] = Min { dist[j] | vi ∈ v-visit },vj就是求得一条从v0出发的最短路径的终点，把 j 加入visit[]；</p>
 <p>  3).修改从v0出发到集合v-visit上任意一点vk可达到的最短路径长度:如果 dist[j]+map[j][k] &lt; dist[k],则dist[k] = dist[j]+map[j][k];</p>
 <p>  4).重复2)-3)操作n-1次，直到所有顶点都包含在visit[]中；</p>
-<p>三、实例<br>  例如，如下有向图求解从图中顶点0出发，到其余顶点的最短路径：<br>     <img src="./images/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg" alt="enter description here" title="示例有向图">                          </p>
+<p>三、实例<br>  例如，如下有向图求解从图中顶点0出发，到其余顶点的最短路径：<br>     <img src="/2017/05/17/Dijkstra-算法笔记/%E7%A4%BA%E4%BE%8B%E6%9C%89%E5%90%91%E5%9B%BE.jpg" alt="enter description here" title="示例有向图">                          </p>
 <table>
 <thead>
 <tr>
