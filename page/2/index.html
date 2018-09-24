@@ -251,6 +251,264 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/PAT-Advanced-Level-1002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="finger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/12/PAT-Advanced-Level-1002/" itemprop="url">PAT(Advanced Level) 1002</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T21:19:33+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1002题一道25分的题是甲级考试中中等难度的题，和昨天的那题不太一样。C++部分我很快就有了思路，比较轻松的完成了这部分；至于Python部分头有点大，各种字符串切片划分操作忘得一干二净，一晚上都在痛苦的报错。</p>
+<hr>
+<ol start="1002">
+<li>A+B for Polynomials (25)</li>
+</ol>
+<p>This time, you are supposed to find A+B where A and B are two polynomials.</p>
+<p>Input</p>
+<p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N1 aN1 N2 aN2 … NK aNK, where K is the number of nonzero terms in the polynomial, Ni and aNi (i=1, 2, …, K) are the exponents and coefficients, respectively. It is given that 1 &lt;= K &lt;= 10，0 &lt;= NK &lt; … &lt; N2 &lt; N1 &lt;=1000.</p>
+<p>Output</p>
+<p>For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.<br>Sample Input</p>
+<p>2 1 2.4 0 3.2<br>2 2 1.5 1 0.5</p>
+<p>Sample Output</p>
+<p>3 2 1.5 1 2.9 0 3.2</p>
+<p>问题描述:<br>两多项式相加求和问题；<br>输入:两行分别代表两个多项式，第一个数字为项数，后面依次为指数，系数，指数，系数…….<br>输出:同输入格式一致表示结果</p>
+<p>Python代码:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">占个坑....</span><br></pre></td></tr></table></figure>
+<p>C++代码:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 1010;</span><br><span class="line"><span class="attribute">float</span> rs[maxn],f;</span><br><span class="line">int n,a;</span><br><span class="line">int cnt=0;</span><br><span class="line">int main()&#123;</span><br><span class="line">   for (int i=0;i&lt;2;i++)&#123;</span><br><span class="line">       scanf("%d",&amp;n);</span><br><span class="line">       while(n--)&#123;</span><br><span class="line">          scanf("%d%f",&amp;a,&amp;f);</span><br><span class="line">          rs[a]+=f;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   for (int i=0;i&lt;maxn;i++)&#123;</span><br><span class="line">       if(rs[i]!=0)cnt++;</span><br><span class="line">   &#125;</span><br><span class="line">   printf("%d",cnt);</span><br><span class="line">   for (int i=maxn-1;i&gt;=0;i--)&#123;</span><br><span class="line">       <span class="keyword">if</span>(rs[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">          printf(" %d %.1f",i,rs[i]);  </span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   printf("\n");</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结:<br>1.C++部分即是用好数组，简化问题；<br>2.至于Python部分的代码为什么还没贴，我写的感觉还不太满意，不是特别pythonic，会补上的；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/PAT-Advanced-Level-1001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="finger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/11/PAT-Advanced-Level-1001/" itemprop="url">PAT (Advanced Level) 1001</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T23:24:44+08:00">
+                2017-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天终于开始了PAT甲级题库，为了9月份的PAT考试，题库的每一道题我都会写进博客里的。之前学过的Python发现忘得很厉害很彻底，所以我准备每题都写Python和C++两个版本，至于其他语言好像无缘了，毕竟考研很多事情。代码我会放到我的GitHub，如果有迷路的盆友有兴趣，可以找我玩耍呀！</p>
+<p>——————————————-这是分割线———————————————————-</p>
+<ol start="1001">
+<li>A+B Format (20)<br>Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).<br>Input</li>
+</ol>
+<p>Each input file contains one test case. Each case contains a pair of integers a and b where -1000000 &lt;= a, b &lt;= 1000000. The numbers are separated by a space.</p>
+<p>Output</p>
+<p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.<br>Sample Input</p>
+<p>-1000000 9</p>
+<p>Sample Output</p>
+<p>-999,991<br>问题描述：<br>输入a,b两个整数，空格隔开；<br>格式化输出两者和；</p>
+<p>Python代码：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def formatout(contents):</span><br><span class="line">    num = map(int,contents.split())</span><br><span class="line">    num = num[<span class="number">0</span>] + num[<span class="number">1</span>]</span><br><span class="line">    return <span class="string">'&#123;:,&#125;'</span>.format(num)</span><br><span class="line">print formatout(raw_input())</span><br></pre></td></tr></table></figure>
+<p>C++代码：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;cstdio&gt;</span><br><span class="line"># include&lt;iostream&gt;</span><br><span class="line"># include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">   int a,b,c,k,num[100000];</span><br><span class="line">   int i=0;</span><br><span class="line">   scanf("%d%d",&amp;a,&amp;b);</span><br><span class="line">   c=a+b;</span><br><span class="line">   <span class="keyword">if</span>(c&lt;<span class="number">0</span>)&#123;</span><br><span class="line">      c=-c;</span><br><span class="line">      printf("-");</span><br><span class="line">   &#125;</span><br><span class="line">   while(c)&#123;</span><br><span class="line">     num[i++]=c%10;</span><br><span class="line">     c/=10;</span><br><span class="line">   &#125;</span><br><span class="line">   for(k=i-1;k&gt;=0;k--)&#123;</span><br><span class="line">      printf("%d",num[k]);</span><br><span class="line">      if(k%3 == 0 &amp;&amp; k)</span><br><span class="line">      printf(",");</span><br><span class="line">   &#125;</span><br><span class="line">  if(!i)printf("0");</span><br><span class="line">  printf("\n");</span><br><span class="line">  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>1.Map/Reduce: 提到Map函数不得不提Google大名鼎鼎的论文:<a href="research.google.com/archive/mapreduce.html">MapReduce:simplified data processing on large clusters</a>还有这篇国人的例子很生动<a href="http://blog.csdn.net/lifuxiangcaohui/article/details/22675437" target="_blank" rel="noopener"> 用通俗易懂的大白话讲解Map/Reduce原理 </a><br>2.raw_input ()和input():<br>简而言之input ()函数接受输入时，内容必须符合Python语法规则即input()函数返回值带有数据类型(int,float,str…);<br>raw_input()则把输入内容一律按字符串返回。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/这是一篇测试文你可以不应看了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,7 +662,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -417,7 +675,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

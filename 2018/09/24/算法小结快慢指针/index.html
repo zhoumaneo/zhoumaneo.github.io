@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构,Leetcode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;总结一些算法问题的思路和技巧，在处理链表的问题中经常会遇到寻找链表中间节点这样的问题，快慢指针(fast-slow pointer)就是一个很不错的工具。直接看题:A.判断链表是否有环并输出环入口节点  Linked List CycleGiven a linked list, determine if it has a cycle in it. Linked List C">
+<meta name="keywords" content="数据结构,Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法小结快慢指针">
+<meta property="og:url" content="http://yoursite.com/2018/09/24/算法小结快慢指针/index.html">
+<meta property="og:site_name" content="这里是——刀塔没我炉石没我的Blog">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;总结一些算法问题的思路和技巧，在处理链表的问题中经常会遇到寻找链表中间节点这样的问题，快慢指针(fast-slow pointer)就是一个很不错的工具。直接看题:A.判断链表是否有环并输出环入口节点  Linked List CycleGiven a linked list, determine if it has a cycle in it. Linked List C">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-24T07:11:47.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法小结快慢指针">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;总结一些算法问题的思路和技巧，在处理链表的问题中经常会遇到寻找链表中间节点这样的问题，快慢指针(fast-slow pointer)就是一个很不错的工具。直接看题:A.判断链表是否有环并输出环入口节点  Linked List CycleGiven a linked list, determine if it has a cycle in it. Linked List C">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/24/算法小结快慢指针/"/>
+
+
+
+
+
+  <title>算法小结快慢指针 | 这里是——刀塔没我炉石没我的Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">这里是——刀塔没我炉石没我的Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">you could call my life on the road. prior to that I'd always dreamed of...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/算法小结快慢指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="finger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法小结快慢指针</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-24T14:57:02+08:00">
+                2018-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;总结一些算法问题的思路和技巧，在处理链表的问题中经常会遇到寻找链表中间节点这样的问题，快慢指针(fast-slow pointer)就是一个很不错的工具。<br>直接看题:<br>A.判断链表是否有环并输出环入口节点</p>
+<ol start="141">
+<li>Linked List Cycle<br>Given a linked list, determine if it has a cycle in it.</li>
+<li>Linked List Cycle II<br>Given a linked list, return the node where the cycle begins. If there is no cycle, return null.<br>142相较于141多了一个寻找环入口的步骤。这里给出142的代码：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FindListCycle</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">	fast = slow = head</span><br><span class="line"><span class="comment">#寻找是否存在环</span></span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow = slow.next</span><br><span class="line">		fast = fast.next.next</span><br><span class="line">		<span class="keyword">if</span> fast == slow:</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"><span class="comment">#找到环的入口</span></span><br><span class="line">	<span class="keyword">while</span> head != slow:</span><br><span class="line">		slow = slow.next</span><br><span class="line">		fast = fast.next</span><br><span class="line">	<span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+<p>利用快慢指针寻找环入口的数学原理：<br>第一个循环中快慢指针相遇表示链表存在环，设slow走了N个节点；fast则走了2N个节点两指针相遇。此时保持两节点位置，让head从链表头遍历链表，head指针保持和slow一样每次一步的速度前进必定在slow走到2N(head走到N)时两指针相遇。在此位置之前相遇，相遇点即为环入口或是直到2N点初才相遇2Indian即是入口。</p>
+<p>B.寻找链表中点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FindMiddleNode</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">	fast,slow = head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow,fast = slow.next,fast.next.next</span><br><span class="line">	<span class="keyword">return</span> slow</span><br></pre></td></tr></table></figure>
+<ol start="148">
+<li>Sort List<br>Sort a linked list in O(n log n) time using constant space complexity.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortList</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">		<span class="keyword">return</span> head</span><br><span class="line">	<span class="comment"># use fast-slow pointers to find the middle of the list</span></span><br><span class="line">	<span class="comment"># find the middle node and then sperate the list into two parts</span></span><br><span class="line">	pre,slow,fast = <span class="keyword">None</span>,head,head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		pre,slow,fast = slow,slow.next,fast.next.next</span><br><span class="line">	pre.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> self.merge(*map(self.sortList,(head,slow)))</span><br><span class="line">	<span class="comment">#merge sort        </span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self,h1,h2)</span>:</span></span><br><span class="line">		dummy = tail = ListNode(<span class="keyword">None</span>)</span><br><span class="line">		<span class="keyword">while</span> h1 <span class="keyword">and</span> h2:</span><br><span class="line">		<span class="keyword">if</span> h1.val &lt; h2.val:</span><br><span class="line">			tail.next,tail,h1 = h1,h1,h1.next</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			tail.next,tail,h2 = h2,h2,h2.next</span><br><span class="line">		tail.next = h1 <span class="keyword">or</span> h2</span><br><span class="line">		<span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<ol start="234">
+<li>Palindrome Linked List<br>Given a singly linked list, determine if it is a palindrome.<br>这道题可以利用list将每个节点的val存下来然后利用list的reverse方法翻转list与原来的list进行比较；不过要想达到空间复杂度O(1)则需要找到中间节点翻转后半节点进行比较。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一:使用list翻转，空间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(head)</span>:</span></span><br><span class="line">	vals = []</span><br><span class="line">	<span class="keyword">while</span> head:</span><br><span class="line">		vals += head.val</span><br><span class="line">		head = head.next</span><br><span class="line">	<span class="keyword">return</span> vals == vals[::<span class="number">-1</span>]</span><br><span class="line"><span class="comment">#方法二:使用快慢指针找中节点翻转后半链表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(head)</span>:</span></span><br><span class="line">	fast = slow =head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow,fast = slow.next,fast.next.next</span><br><span class="line">	prev = <span class="keyword">None</span></span><br><span class="line">	<span class="keyword">while</span> slow:</span><br><span class="line">		tmp = slow.next</span><br><span class="line">		slow.next = prev</span><br><span class="line">		prev = slow</span><br><span class="line">		slow = tmp</span><br><span class="line">	<span class="keyword">while</span> slow:</span><br><span class="line">		<span class="keyword">if</span> slow.val != head.val:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">		slow = slow.next</span><br><span class="line">		head = head.next</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="遇到其他问题再更新…"><a href="#遇到其他问题再更新…" class="headerlink" title="遇到其他问题再更新….."></a>遇到其他问题再更新…..</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/22/Day-1-HongKong/" rel="next" title="Day 1 HongKong">
+                <i class="fa fa-chevron-left"></i> Day 1 HongKong
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="finger" />
+          <p class="site-author-name" itemprop="name">finger</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhoumaneo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到其他问题再更新…"><span class="nav-number">1.</span> <span class="nav-text">遇到其他问题再更新…..</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">finger</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

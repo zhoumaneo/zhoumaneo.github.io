@@ -251,6 +251,134 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/算法小结快慢指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="finger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/24/算法小结快慢指针/" itemprop="url">算法小结快慢指针</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-24T14:57:02+08:00">
+                2018-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&emsp;&emsp;总结一些算法问题的思路和技巧，在处理链表的问题中经常会遇到寻找链表中间节点这样的问题，快慢指针(fast-slow pointer)就是一个很不错的工具。<br>直接看题:<br>A.判断链表是否有环并输出环入口节点</p>
+<ol start="141">
+<li>Linked List Cycle<br>Given a linked list, determine if it has a cycle in it.</li>
+<li>Linked List Cycle II<br>Given a linked list, return the node where the cycle begins. If there is no cycle, return null.<br>142相较于141多了一个寻找环入口的步骤。这里给出142的代码：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FindListCycle</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">	fast = slow = head</span><br><span class="line"><span class="comment">#寻找是否存在环</span></span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow = slow.next</span><br><span class="line">		fast = fast.next.next</span><br><span class="line">		<span class="keyword">if</span> fast == slow:</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"><span class="comment">#找到环的入口</span></span><br><span class="line">	<span class="keyword">while</span> head != slow:</span><br><span class="line">		slow = slow.next</span><br><span class="line">		fast = fast.next</span><br><span class="line">	<span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+<p>利用快慢指针寻找环入口的数学原理：<br>第一个循环中快慢指针相遇表示链表存在环，设slow走了N个节点；fast则走了2N个节点两指针相遇。此时保持两节点位置，让head从链表头遍历链表，head指针保持和slow一样每次一步的速度前进必定在slow走到2N(head走到N)时两指针相遇。在此位置之前相遇，相遇点即为环入口或是直到2N点初才相遇2Indian即是入口。</p>
+<p>B.寻找链表中点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FindMiddleNode</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">	fast,slow = head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow,fast = slow.next,fast.next.next</span><br><span class="line">	<span class="keyword">return</span> slow</span><br></pre></td></tr></table></figure>
+<ol start="148">
+<li>Sort List<br>Sort a linked list in O(n log n) time using constant space complexity.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sortList</span><span class="params">(head)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">		<span class="keyword">return</span> head</span><br><span class="line">	<span class="comment"># use fast-slow pointers to find the middle of the list</span></span><br><span class="line">	<span class="comment"># find the middle node and then sperate the list into two parts</span></span><br><span class="line">	pre,slow,fast = <span class="keyword">None</span>,head,head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		pre,slow,fast = slow,slow.next,fast.next.next</span><br><span class="line">	pre.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> self.merge(*map(self.sortList,(head,slow)))</span><br><span class="line">	<span class="comment">#merge sort        </span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self,h1,h2)</span>:</span></span><br><span class="line">		dummy = tail = ListNode(<span class="keyword">None</span>)</span><br><span class="line">		<span class="keyword">while</span> h1 <span class="keyword">and</span> h2:</span><br><span class="line">		<span class="keyword">if</span> h1.val &lt; h2.val:</span><br><span class="line">			tail.next,tail,h1 = h1,h1,h1.next</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			tail.next,tail,h2 = h2,h2,h2.next</span><br><span class="line">		tail.next = h1 <span class="keyword">or</span> h2</span><br><span class="line">		<span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<ol start="234">
+<li>Palindrome Linked List<br>Given a singly linked list, determine if it is a palindrome.<br>这道题可以利用list将每个节点的val存下来然后利用list的reverse方法翻转list与原来的list进行比较；不过要想达到空间复杂度O(1)则需要找到中间节点翻转后半节点进行比较。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一:使用list翻转，空间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(head)</span>:</span></span><br><span class="line">	vals = []</span><br><span class="line">	<span class="keyword">while</span> head:</span><br><span class="line">		vals += head.val</span><br><span class="line">		head = head.next</span><br><span class="line">	<span class="keyword">return</span> vals == vals[::<span class="number">-1</span>]</span><br><span class="line"><span class="comment">#方法二:使用快慢指针找中节点翻转后半链表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(head)</span>:</span></span><br><span class="line">	fast = slow =head</span><br><span class="line">	<span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">		slow,fast = slow.next,fast.next.next</span><br><span class="line">	prev = <span class="keyword">None</span></span><br><span class="line">	<span class="keyword">while</span> slow:</span><br><span class="line">		tmp = slow.next</span><br><span class="line">		slow.next = prev</span><br><span class="line">		prev = slow</span><br><span class="line">		slow = tmp</span><br><span class="line">	<span class="keyword">while</span> slow:</span><br><span class="line">		<span class="keyword">if</span> slow.val != head.val:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">		slow = slow.next</span><br><span class="line">		head = head.next</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="遇到其他问题再更新…"><a href="#遇到其他问题再更新…" class="headerlink" title="遇到其他问题再更新….."></a>遇到其他问题再更新…..</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/Day-1-HongKong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -747,6 +875,122 @@ a b c a b a a c a b a a c b a b a
         
           
             
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/Ugly-Numbers-UVa-136/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="finger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/07/Ugly-Numbers-UVa-136/" itemprop="url"> Ugly Numbers  UVa 136</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T20:34:01+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这道题解中用到了priority_queue和set两个stl容器。是熟悉stl容器类很好的例子。</p>
+<hr>
+<p>Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence<br>1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …<br>shows the first 11 ugly numbers. By convention, 1 is included.<br>Write a program to find and print the 1500’th ugly number.<br>Input<br>There is no input to this program.<br>Output<br>Output should consist of a single line as shown below, with ‘<number>’ replaced by the number computed.<br>Sample Output<br>The 1500’th ugly number is <number>.</number></number></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#include</span> &lt;cstdio&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;vector&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;queue&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;set&gt;</span><br><span class="line"><span class="selector-id">#include</span> &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">const int coeff[3]=&#123;2,3,5&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	priority_queue&lt;LL, vector&lt;LL&gt;, greater&lt;LL&gt; &gt; pq;</span><br><span class="line">	set &lt;LL&gt; q;</span><br><span class="line">	pq.push(1);</span><br><span class="line">	s.insert(1);</span><br><span class="line">	for(int i=0; ;i++)&#123;</span><br><span class="line">		LL x = pq.<span class="attribute">top</span>();</span><br><span class="line">		pq.pop();</span><br><span class="line">		<span class="keyword">if</span>( i==<span class="number">1500</span>)&#123;</span><br><span class="line">			cout &lt;&lt; "The 1500'th ugly number is "&lt;&lt;x&lt;&lt;"./n";</span><br><span class="line">		    break;</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j=0;j&lt;3;j++)&#123;</span><br><span class="line">			LL x2=x*coeff[j];</span><br><span class="line">			if(!s.count(x2))&#123; s.insert(x2);pq.push(x2);&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.</p>
+
           
         
       
@@ -1410,264 +1654,6 @@ a b c a b a a c a b a a c b a b a
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/PAT-Advanced-Level-1002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="finger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/12/PAT-Advanced-Level-1002/" itemprop="url">PAT(Advanced Level) 1002</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T21:19:33+08:00">
-                2017-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1002题一道25分的题是甲级考试中中等难度的题，和昨天的那题不太一样。C++部分我很快就有了思路，比较轻松的完成了这部分；至于Python部分头有点大，各种字符串切片划分操作忘得一干二净，一晚上都在痛苦的报错。</p>
-<hr>
-<ol start="1002">
-<li>A+B for Polynomials (25)</li>
-</ol>
-<p>This time, you are supposed to find A+B where A and B are two polynomials.</p>
-<p>Input</p>
-<p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N1 aN1 N2 aN2 … NK aNK, where K is the number of nonzero terms in the polynomial, Ni and aNi (i=1, 2, …, K) are the exponents and coefficients, respectively. It is given that 1 &lt;= K &lt;= 10，0 &lt;= NK &lt; … &lt; N2 &lt; N1 &lt;=1000.</p>
-<p>Output</p>
-<p>For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.<br>Sample Input</p>
-<p>2 1 2.4 0 3.2<br>2 2 1.5 1 0.5</p>
-<p>Sample Output</p>
-<p>3 2 1.5 1 2.9 0 3.2</p>
-<p>问题描述:<br>两多项式相加求和问题；<br>输入:两行分别代表两个多项式，第一个数字为项数，后面依次为指数，系数，指数，系数…….<br>输出:同输入格式一致表示结果</p>
-<p>Python代码:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">占个坑....</span><br></pre></td></tr></table></figure>
-<p>C++代码:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;cstdio&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 1010;</span><br><span class="line"><span class="attribute">float</span> rs[maxn],f;</span><br><span class="line">int n,a;</span><br><span class="line">int cnt=0;</span><br><span class="line">int main()&#123;</span><br><span class="line">   for (int i=0;i&lt;2;i++)&#123;</span><br><span class="line">       scanf("%d",&amp;n);</span><br><span class="line">       while(n--)&#123;</span><br><span class="line">          scanf("%d%f",&amp;a,&amp;f);</span><br><span class="line">          rs[a]+=f;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   for (int i=0;i&lt;maxn;i++)&#123;</span><br><span class="line">       if(rs[i]!=0)cnt++;</span><br><span class="line">   &#125;</span><br><span class="line">   printf("%d",cnt);</span><br><span class="line">   for (int i=maxn-1;i&gt;=0;i--)&#123;</span><br><span class="line">       <span class="keyword">if</span>(rs[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">          printf(" %d %.1f",i,rs[i]);  </span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   printf("\n");</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总结:<br>1.C++部分即是用好数组，简化问题；<br>2.至于Python部分的代码为什么还没贴，我写的感觉还不太满意，不是特别pythonic，会补上的；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/PAT-Advanced-Level-1001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="finger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这里是——刀塔没我炉石没我的Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/11/PAT-Advanced-Level-1001/" itemprop="url">PAT (Advanced Level) 1001</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T23:24:44+08:00">
-                2017-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天终于开始了PAT甲级题库，为了9月份的PAT考试，题库的每一道题我都会写进博客里的。之前学过的Python发现忘得很厉害很彻底，所以我准备每题都写Python和C++两个版本，至于其他语言好像无缘了，毕竟考研很多事情。代码我会放到我的GitHub，如果有迷路的盆友有兴趣，可以找我玩耍呀！</p>
-<p>——————————————-这是分割线———————————————————-</p>
-<ol start="1001">
-<li>A+B Format (20)<br>Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).<br>Input</li>
-</ol>
-<p>Each input file contains one test case. Each case contains a pair of integers a and b where -1000000 &lt;= a, b &lt;= 1000000. The numbers are separated by a space.</p>
-<p>Output</p>
-<p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.<br>Sample Input</p>
-<p>-1000000 9</p>
-<p>Sample Output</p>
-<p>-999,991<br>问题描述：<br>输入a,b两个整数，空格隔开；<br>格式化输出两者和；</p>
-<p>Python代码：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def formatout(contents):</span><br><span class="line">    num = map(int,contents.split())</span><br><span class="line">    num = num[<span class="number">0</span>] + num[<span class="number">1</span>]</span><br><span class="line">    return <span class="string">'&#123;:,&#125;'</span>.format(num)</span><br><span class="line">print formatout(raw_input())</span><br></pre></td></tr></table></figure>
-<p>C++代码：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># include &lt;cstdio&gt;</span><br><span class="line"># include&lt;iostream&gt;</span><br><span class="line"># include&lt;cstring&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">   int a,b,c,k,num[100000];</span><br><span class="line">   int i=0;</span><br><span class="line">   scanf("%d%d",&amp;a,&amp;b);</span><br><span class="line">   c=a+b;</span><br><span class="line">   <span class="keyword">if</span>(c&lt;<span class="number">0</span>)&#123;</span><br><span class="line">      c=-c;</span><br><span class="line">      printf("-");</span><br><span class="line">   &#125;</span><br><span class="line">   while(c)&#123;</span><br><span class="line">     num[i++]=c%10;</span><br><span class="line">     c/=10;</span><br><span class="line">   &#125;</span><br><span class="line">   for(k=i-1;k&gt;=0;k--)&#123;</span><br><span class="line">      printf("%d",num[k]);</span><br><span class="line">      if(k%3 == 0 &amp;&amp; k)</span><br><span class="line">      printf(",");</span><br><span class="line">   &#125;</span><br><span class="line">  if(!i)printf("0");</span><br><span class="line">  printf("\n");</span><br><span class="line">  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总结：</p>
-<p>1.Map/Reduce: 提到Map函数不得不提Google大名鼎鼎的论文:<a href="research.google.com/archive/mapreduce.html">MapReduce:simplified data processing on large clusters</a>还有这篇国人的例子很生动<a href="http://blog.csdn.net/lifuxiangcaohui/article/details/22675437" target="_blank" rel="noopener"> 用通俗易懂的大白话讲解Map/Reduce原理 </a><br>2.raw_input ()和input():<br>简而言之input ()函数接受输入时，内容必须符合Python语法规则即input()函数返回值带有数据类型(int,float,str…);<br>raw_input()则把输入内容一律按字符串返回。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1717,7 +1703,7 @@ a b c a b a a c a b a a c b a b a
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1730,7 +1716,7 @@ a b c a b a a c a b a a c b a b a
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
