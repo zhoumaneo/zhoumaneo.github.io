@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Go, Ahead" />
+  <meta name="keywords" content="kaggle," />
 
 
 
@@ -90,16 +90,18 @@
 
 
 
-<meta name="description" content="头发浓密的话会不会成为异类！？">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Talk is cheap">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta name="description" content="1. Data preparation 1.1 Load data 1.2 Check for null and missing values 1.3 Normalization 1.4 Reshape 1.5 Label encoding 1.6 Split training and valdiation set 2. CNN 2.1 Define the model 2.2 Set the">
+<meta name="keywords" content="kaggle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle实战：Digit Recognizer">
+<meta property="og:url" content="http://yoursite.com/2018/11/20/Kaggle实战：Digit-Recognizer/index.html">
 <meta property="og:site_name" content="Talk is cheap">
-<meta property="og:description" content="头发浓密的话会不会成为异类！？">
+<meta property="og:description" content="1. Data preparation 1.1 Load data 1.2 Check for null and missing values 1.3 Normalization 1.4 Reshape 1.5 Label encoding 1.6 Split training and valdiation set 2. CNN 2.1 Define the model 2.2 Set the">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-20T08:15:04.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Talk is cheap">
-<meta name="twitter:description" content="头发浓密的话会不会成为异类！？">
+<meta name="twitter:title" content="Kaggle实战：Digit Recognizer">
+<meta name="twitter:description" content="1. Data preparation 1.1 Load data 1.2 Check for null and missing values 1.3 Normalization 1.4 Reshape 1.5 Label encoding 1.6 Split training and valdiation set 2. CNN 2.1 Define the model 2.2 Set the">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/20/Kaggle实战：Digit-Recognizer/"/>
 
 
 
 
 
-  <title>Talk is cheap</title>
+  <title>Kaggle实战：Digit Recognizer | Talk is cheap</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -168,9 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,9 +287,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -298,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/20/Kaggle实战：Digit-Recognizer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sylar">
@@ -315,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/17/Dijkstra-算法笔记/" itemprop="url">Dijkstra 算法笔记</a></h1>
+          <h1 class="post-title" itemprop="name headline">Kaggle实战：Digit Recognizer</h1>
         
 
         <div class="post-meta">
@@ -329,8 +327,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-17T12:13:14+08:00">
-                2017-05-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-20T14:58:26+08:00">
+                2018-11-20
               </time>
             
 
@@ -348,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/17/Dijkstra-算法笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/17/Dijkstra-算法笔记/" itemprop="commentCount"></span>
+                <a href="/2018/11/20/Kaggle实战：Digit-Recognizer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/20/Kaggle实战：Digit-Recognizer/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,7 +355,7 @@
 
           
           
-             <span id="/2017/05/17/Dijkstra-算法笔记/" class="leancloud_visitors" data-flag-title="Dijkstra 算法笔记">
+             <span id="/2018/11/20/Kaggle实战：Digit-Recognizer/" class="leancloud_visitors" data-flag-title="Kaggle实战：Digit Recognizer">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,655 +383,92 @@
       
 
       
+        <hr>
+<ul>
+<li><strong>1. Data preparation</strong></li>
+<li>1.1 Load data</li>
+<li>1.2 Check for null and missing values</li>
+<li>1.3 Normalization</li>
+<li>1.4 Reshape</li>
+<li>1.5 Label encoding</li>
+<li>1.6 Split training and valdiation set</li>
+<li><strong>2. CNN</strong></li>
+<li>2.1 Define the model</li>
+<li>2.2 Set the optimizer and annealer</li>
+<li>2.3 Data augmentation</li>
+<li><strong>3. Evaluate the model</strong></li>
+<li>3.1 Training and validation curves</li>
+<li>3.2 Confusion matrix</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"># Data preparation</span><br><span class="line">#load data</span><br><span class="line">pd.read_csv</span><br><span class="line"></span><br><span class="line">#check data </span><br><span class="line">train.isnull().any().describe()</span><br><span class="line">train.head()</span><br><span class="line">train.describe()</span><br><span class="line"></span><br><span class="line">#Normolization </span><br><span class="line"># CNN deal with numbers in [0,1] faster then [0,255]</span><br><span class="line">train/255.0</span><br><span class="line"></span><br><span class="line">#reshape</span><br><span class="line">reshape image in 3-dimentions</span><br><span class="line">train.values.reshape(height,width,canal)</span><br><span class="line"></span><br><span class="line">#label encoding</span><br><span class="line">train_y = to_categorical(train_y,numberclasses)</span><br><span class="line"></span><br><span class="line">#split training and validation sets</span><br><span class="line">train_test_split()</span><br><span class="line"></span><br><span class="line">----------</span><br><span class="line"># CNN model</span><br><span class="line">#define model</span><br><span class="line">#CNN architechture for example:</span><br><span class="line">#In -&gt; [[Conv2D-&gt;relu]*2 -&gt; MaxPool2D -&gt; Dropout]*2 -&gt; Flatten -&gt; Dense -&gt; Dropout -&gt; Out</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add()</span><br><span class="line"></span><br><span class="line">#set optimizer and annealer</span><br><span class="line">keras.optimizers.SGD(lr, momentum, decay, nesterov=False)</span><br><span class="line">keras.optimizers.RMSprop(lr, rho, epsilon=None, decay)</span><br><span class="line">compile(optimizer, loss=None, metrics=None, loss_weights=None, sample_weight_mode=None, weighted_metrics=None, target_tensors=None)</span><br><span class="line">learning_rate_reduction = ReduceLROnPlateau(monitor=&apos;val_acc&apos;, patience, verbose, factor, min_lr)</span><br><span class="line">epoches</span><br><span class="line">batch_size</span><br><span class="line"></span><br><span class="line">#Data augmentation</span><br><span class="line">#to prevent overfitting </span><br><span class="line">ImageDataGenerator(</span><br><span class="line">featurewise_center=False,  # set input mean to 0 over the dataset</span><br><span class="line">samplewise_center=False,  # set each sample mean to 0</span><br><span class="line">featurewise_std_normalization=False,  # divide inputs by std of the dataset</span><br><span class="line">samplewise_std_normalization=False,  # divide each input by its std</span><br><span class="line">zca_whitening=False,  # apply ZCA whitening</span><br><span class="line">rotation_range=10,  # randomly rotate images in the range (degrees, 0 to 180)</span><br><span class="line">zoom_range = 0.1, # Randomly zoom image </span><br><span class="line">width_shift_range=0.1,  # randomly shift images horizontally (fraction of total width)</span><br><span class="line">height_shift_range=0.1,  # randomly shift images vertically (fraction of total height)</span><br><span class="line">horizontal_flip=False,  # randomly flip images</span><br><span class="line">vertical_flip=False)  # randomly flip images</span><br><span class="line"></span><br><span class="line">history = model.fit_generator(datagen.flow(X_train,Y_train, batch_size=batch_size),</span><br><span class="line">epochs = epochs, validation_data = (X_val,Y_val),</span><br><span class="line">verbose = 2, steps_per_epoch=X_train.shape[0] // batch_size</span><br><span class="line">, callbacks=[learning_rate_reduction])</span><br><span class="line"></span><br><span class="line">----------</span><br><span class="line"># Evaluate the model</span><br><span class="line"># Plot the loss and accuracy curves for training and validation </span><br><span class="line">fig, ax = plt.subplots(2,1)</span><br><span class="line">ax[0].plot(history.history[&apos;loss&apos;], color=&apos;b&apos;, label=&quot;Training loss&quot;)</span><br><span class="line">ax[0].plot(history.history[&apos;val_loss&apos;], color=&apos;r&apos;, label=&quot;validation loss&quot;,axes =ax[0])</span><br><span class="line">legend = ax[0].legend(loc=&apos;best&apos;, shadow=True)</span><br><span class="line"></span><br><span class="line">ax[1].plot(history.history[&apos;acc&apos;], color=&apos;b&apos;, label=&quot;Training accuracy&quot;)</span><br><span class="line">ax[1].plot(history.history[&apos;val_acc&apos;], color=&apos;r&apos;,label=&quot;Validation accuracy&quot;)</span><br><span class="line">legend = ax[1].legend(loc=&apos;best&apos;, shadow=True)</span><br><span class="line"></span><br><span class="line"># Look at confusion matrix </span><br><span class="line"></span><br><span class="line">def plot_confusion_matrix(cm, classes,</span><br><span class="line">normalize=False,</span><br><span class="line">title=&apos;Confusion matrix&apos;,</span><br><span class="line">cmap=plt.cm.Blues):</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">This function prints and plots the confusion matrix.</span><br><span class="line">Normalization can be applied by setting `normalize=True`.</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">plt.imshow(cm, interpolation=&apos;nearest&apos;, cmap=cmap)</span><br><span class="line">plt.title(title)</span><br><span class="line">plt.colorbar()</span><br><span class="line">tick_marks = np.arange(len(classes))</span><br><span class="line">plt.xticks(tick_marks, classes, rotation=45)</span><br><span class="line">plt.yticks(tick_marks, classes)</span><br><span class="line"></span><br><span class="line">if normalize:</span><br><span class="line">cm = cm.astype(&apos;float&apos;) / cm.sum(axis=1)[:, np.newaxis]</span><br><span class="line"></span><br><span class="line">thresh = cm.max() / 2.</span><br><span class="line">for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):</span><br><span class="line">plt.text(j, i, cm[i, j],</span><br><span class="line">horizontalalignment=&quot;center&quot;,</span><br><span class="line">color=&quot;white&quot; if cm[i, j] &gt; thresh else &quot;black&quot;)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.ylabel(&apos;True label&apos;)</span><br><span class="line">plt.xlabel(&apos;Predicted label&apos;)</span><br><span class="line"></span><br><span class="line"># Predict the values from the validation dataset</span><br><span class="line">Y_pred = model.predict(X_val)</span><br><span class="line"># Convert predictions classes to one hot vectors </span><br><span class="line">Y_pred_classes = np.argmax(Y_pred,axis = 1) </span><br><span class="line"># Convert validation observations to one hot vectors</span><br><span class="line">Y_true = np.argmax(Y_val,axis = 1) </span><br><span class="line"># compute the confusion matrix</span><br><span class="line">confusion_mtx = confusion_matrix(Y_true, Y_pred_classes) </span><br><span class="line"># plot the confusion matrix</span><br><span class="line">plot_confusion_matrix(confusion_mtx, classes = range(10))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          关于Dijkstra算法的本质是贪心算法还是动态规划，大家可以去看看大牛们的理解，作为一个学习者我也没什么独到的理解，不过看看大家的观点也没什么害处，毕竟兼听则明。
 
-Dijkstra算法是求解单源最短路径的有效方法。一、相关辅助数组
+      
+    </div>
 
-Visit[]: 记录是否访问过某个节点，当visit[vi]=1时，表示将顶点vi             放入visit[]中；
-dist[]: 记录从源点v0到各顶点当前的最短路径长度，dist[]初值为ma            p[vo][i];
-path[]: path[i]表示从源点到顶点i的最短路径的前驱节点。
-
-二、算法步骤  假设从顶点0出发，即v0=0，集合visit[]最初只包含顶点0，v[] 表示顶点集合及其属性值。邻接矩阵 map 表示带权有向图，map[i][j]表示有向边 &lt;i,j&gt; 的权值，若不存在 &lt;i,j&gt;,则map[i][j]为 ∞。
-  1).初始化: 集合visit[]初始化为{0}，dist[]的初始值 dist[] = map[0][i];
-  2).从顶点集合v-visit中选出vj，满足dist[j] = Min { dist[j] | vi ∈ v-visit },vj就是求得一条从v0出发的最短路径的终点，把 j 加入visit[]；
-  3).修改从v0出发到集合v-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/17/Dijkstra-算法笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/算法思想——动态规划-Dynamic-programing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sylar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Talk is cheap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/15/算法思想——动态规划-Dynamic-programing/" itemprop="url">算法思想——动态规划(Dynamic programing)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T21:27:37+08:00">
-                2017-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/kaggle/" rel="tag"># kaggle</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/15/算法思想——动态规划-Dynamic-programing/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/15/算法思想——动态规划-Dynamic-programing/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/15/算法思想——动态规划-Dynamic-programing/" class="leancloud_visitors" data-flag-title="算法思想——动态规划(Dynamic programing)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-          WebGis的课程上老师让有个小组展示，主要内容是最近所学，最近学习算法，思来想去干脆做个有关算法思想的介绍。
+      
 
-
-概念：
-动态规划(Dynamic programing)中:Dynamic当然是动态的意思了。然而programing却有另一种解释:”programing”指的是一种表格法，并非编写计算机程序。(这是《算法导论》上的解释）。动态规划常用来解决最优化问题，与分治法十分相似，其基本原理是将待求问题分为若干子问题，通过求解子问题得到原问题的解。
-
-
-
-适用条件：
-1&gt;最优化原理:一个最优化策略具有这样的性质，不论过去状态和决策如何，对前面的决策所形成的状态而言，余下的诸决策必须构成最优策略。简而言之，一个最优化策略的子策略总是最优的。
-2&gt;无后效性:以前各阶段的状态都无法直接影响它未来的决策，每个状态都是对过去的一个完整总结。
-3&gt;子问题重叠性:动态规划将原来具有指数级时间复杂度的搜索算法改进成了具有多项式时间发杂度的算法，是一种牺牲空间换时间的算法。
-
-以01背包为例理解动态规划原理及特点：
-01背包问题:给出物品重量 W[n]={w1,w2,w3,w4,w5…,wn},物品价值 V[n]={v1,v2,v3,v4,v5….vn},以及背包最大承重量 c=K，求背包能容纳的最大价值为多少？ (PS:每种物品只能选一次，对于物品而言1代表选，而0为不选，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/15/算法思想——动态规划-Dynamic-programing/#more" rel="contents">
-              Read more &raquo;
-            </a>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/2D横版游戏小结powered-by-GameMaker2/" rel="next" title="2D横版游戏小结powered by GameMaker2">
+                <i class="fa fa-chevron-left"></i> 2D横版游戏小结powered by GameMaker2
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/PAT-Advanced-Level-1002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sylar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Talk is cheap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/12/PAT-Advanced-Level-1002/" itemprop="url">PAT(Advanced Level) 1002</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T21:19:33+08:00">
-                2017-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/12/PAT-Advanced-Level-1002/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/12/PAT-Advanced-Level-1002/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/12/PAT-Advanced-Level-1002/" class="leancloud_visitors" data-flag-title="PAT(Advanced Level) 1002">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          1002题一道25分的题是甲级考试中中等难度的题，和昨天的那题不太一样。C++部分我很快就有了思路，比较轻松的完成了这部分；至于Python部分头有点大，各种字符串切片划分操作忘得一干二净，一晚上都在痛苦的报错。
-
-
-A+B for Polynomials (25)
-
-This time, you are supposed to find A+B where A and B are two polynomials.
-Input
-Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial: K N1 aN1 N2 aN2 … NK aNK, where K is the number of nonzero terms in the polynomial, Ni and aNi (i=1, 2, …, K) are the exponents and coefficients, respectively. It is given that 1 &lt;= K &lt;= 10，0 &lt;= NK &lt; … &lt; N2 &lt; N1 &lt;=1000.
-Output
-For each tes
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/12/PAT-Advanced-Level-1002/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/PAT-Advanced-Level-1001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sylar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Talk is cheap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/11/PAT-Advanced-Level-1001/" itemprop="url">PAT (Advanced Level) 1001</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T23:24:44+08:00">
-                2017-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/11/PAT-Advanced-Level-1001/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/11/PAT-Advanced-Level-1001/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/11/PAT-Advanced-Level-1001/" class="leancloud_visitors" data-flag-title="PAT (Advanced Level) 1001">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          今天终于开始了PAT甲级题库，为了9月份的PAT考试，题库的每一道题我都会写进博客里的。之前学过的Python发现忘得很厉害很彻底，所以我准备每题都写Python和C++两个版本，至于其他语言好像无缘了，毕竟考研很多事情。代码我会放到我的GitHub，如果有迷路的盆友有兴趣，可以找我玩耍呀！
-——————————————-这是分割线———————————————————-
-
-A+B Format (20)Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).Input
-
-Each input file contains one test case. Each case contains a pair of integers a and b where -1000000 &lt;= a, b &lt;= 1000000. The numbers are separated by a space.
-Output
-For each test case, you should output the sum of a 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/11/PAT-Advanced-Level-1001/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/这是一篇测试文你可以不应看了/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sylar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Talk is cheap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/07/这是一篇测试文你可以不应看了/" itemprop="url">这是一篇测试文你可以不应看了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-07T21:05:53+08:00">
-                2017-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/07/这是一篇测试文你可以不应看了/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/07/这是一篇测试文你可以不应看了/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/07/这是一篇测试文你可以不应看了/" class="leancloud_visitors" data-flag-title="这是一篇测试文你可以不应看了">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          你还是点开了……诶！？调皮。这是刀塔没我炉石没我（曾用名：全自动打屁屁机）的Blog，简单几句话解决这一篇：
--上帝已死-英雄不朽-跳刀躲梅肯-死吧！虫子！
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/07/这是一篇测试文你可以不应看了/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -1041,6 +476,14 @@ For each test case, you should output the sum of a
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/11/20/Kaggle实战：Digit-Recognizer/"
+           data-title="Kaggle实战：Digit Recognizer" data-url="http://yoursite.com/2018/11/20/Kaggle实战：Digit-Recognizer/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1238,6 +681,10 @@ For each test case, you should output the sum of a
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
