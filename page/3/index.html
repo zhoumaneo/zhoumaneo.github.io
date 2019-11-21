@@ -298,6 +298,150 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/栈与队列算法题小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sylar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Talk is cheap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/16/栈与队列算法题小结/" itemprop="url">栈与队列算法题小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-16T19:56:39+08:00">
+                2017-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/16/栈与队列算法题小结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/16/栈与队列算法题小结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/10/16/栈与队列算法题小结/" class="leancloud_visitors" data-flag-title="栈与队列算法题小结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一、getMin功能的栈
+要求：a.在栈的基本功能上增加getmin返回栈内最小的元素;      b.各种操作时间复杂度为O(1)
+
+【解答】1.算法思想：      a.总共两个栈stack_data 和 stack_min，stack_data 用于存放所有元素；stack_min 存放当前data栈中的最小元素      b.入栈时：设入栈元素为 cur,当stack_min栈为空时，cur压入stack_data栈时也压入min栈；当stack_min不为空时,需要比较cur与min 栈栈顶元素的大小：若 cur &lt;= stack_min.peek(),则cur压入min栈；否则不压。      c.出栈时：需要比较cur=stack_data.pop()与stack_min.peek():若cur=stack_min.peek(),则stack_min需弹出栈顶元素。
+2.代码
+123456789101112131415161718192021222324252627282930313233343536373839#getmin_stackimport collectionsclass getmin_stack(object):    def __init__(self):        self.stack_data=[]        self.stack_m
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/16/栈与队列算法题小结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/08/Python-yield-使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -859,156 +1003,6 @@ Each input file contains one test case. For each test case, t
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/Dijkstra-算法笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sylar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Talk is cheap">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/17/Dijkstra-算法笔记/" itemprop="url">Dijkstra 算法笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-17T12:13:14+08:00">
-                2017-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/17/Dijkstra-算法笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/17/Dijkstra-算法笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/05/17/Dijkstra-算法笔记/" class="leancloud_visitors" data-flag-title="Dijkstra 算法笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          关于Dijkstra算法的本质是贪心算法还是动态规划，大家可以去看看大牛们的理解，作为一个学习者我也没什么独到的理解，不过看看大家的观点也没什么害处，毕竟兼听则明。
-
-Dijkstra算法是求解单源最短路径的有效方法。一、相关辅助数组
-
-Visit[]: 记录是否访问过某个节点，当visit[vi]=1时，表示将顶点vi             放入visit[]中；
-dist[]: 记录从源点v0到各顶点当前的最短路径长度，dist[]初值为ma            p[vo][i];
-path[]: path[i]表示从源点到顶点i的最短路径的前驱节点。
-
-二、算法步骤  假设从顶点0出发，即v0=0，集合visit[]最初只包含顶点0，v[] 表示顶点集合及其属性值。邻接矩阵 map 表示带权有向图，map[i][j]表示有向边 &lt;i,j&gt; 的权值，若不存在 &lt;i,j&gt;,则map[i][j]为 ∞。
-  1).初始化: 集合visit[]初始化为{0}，dist[]的初始值 dist[] = map[0][i];
-  2).从顶点集合v-visit中选出vj，满足dist[j] = Min { dist[j] | vi ∈ v-visit },vj就是求得一条从v0出发的最短路径的终点，把 j 加入visit[]；
-  3).修改从v0出发到集合v-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/17/Dijkstra-算法笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1058,7 +1052,7 @@ path[]: path[i]表示从源点到顶点i的最短路径的前驱节点。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
